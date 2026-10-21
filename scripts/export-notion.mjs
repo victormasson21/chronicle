@@ -139,22 +139,28 @@ for await (const page of rows()) {
 process.stderr.write("\n");
 
 // Drop rows with no body (e.g. Type = Image) and exact-duplicate bodies, keeping the first seen.
-const seen = new Set();
+const seen = new Map();
 let empty = 0;
-let duplicates = 0;
+const duplicates = [];
 const snippets = out.filter((s) => {
   if (!s.text) {
     empty++;
     return false;
   }
   const key = s.text.replace(/\s+/g, " ").trim().toLowerCase();
-  if (seen.has(key)) {
-    duplicates++;
+  const kept = seen.get(key);
+  if (kept) {
+    duplicates.push([s, kept]);
     return false;
   }
-  seen.add(key);
+  seen.set(key, s);
   return true;
 });
+
+const describe = (s) => `${s.id} "${s.title}" (${s.date ?? "no date"}, ${s.publication ?? "no publication"}, ${s.source ? "source" : "no source"})`;
+for (const [dropped, kept] of duplicates) {
+  console.error(`dropped ${describe(dropped)}\n   kept ${describe(kept)}`);
+}
 
 snippets.sort((a, b) => (b.date ?? "").localeCompare(a.date ?? "") || a.title.localeCompare(b.title));
 
@@ -164,4 +170,4 @@ await writeFile(
   JSON.stringify({ exportedAt: new Date().toISOString(), count: snippets.length, snippets }, null, 2) + "\n"
 );
 
-console.log(`Wrote ${snippets.length} snippets to ${OUT} (${fetched} bodies fetched, ${empty} dropped as empty, ${duplicates} as duplicates).`);
+console.log(`Wrote ${snippets.length} snippets to ${OUT} (${fetched} bodies fetched, ${empty} dropped as empty, ${duplicates.length} as duplicates).`);
