@@ -9,10 +9,10 @@ The Notion **Clippings** database (data source `3a3e119e-f189-4c5a-8509-f622ea1c
 
 ## Steps
 
-1. Check `NOTION_TOKEN` is set (`echo ${NOTION_TOKEN:+set}`). If not, ask the user for it; never commit it. A `.env` file at the repo root is gitignored, so `export $(cat .env)` is fine.
-2. Run the exporter. Incremental by default (only fetches bodies for rows not already in the JSON):
+1. The token lives in `.env` at the repo root (gitignored, see `.env.example`). If the file is missing, ask the user to create it with the integration's secret; never read or commit it.
+2. Run the exporter with Node loading the token itself, so the value never enters the transcript. Incremental by default (only fetches bodies for rows not already in the JSON):
    ```sh
-   node scripts/export-notion.mjs
+   node --env-file=.env scripts/export-notion.mjs
    ```
    Use `--full` if the user has edited existing rows' text in Notion, or if asked to rebuild.
 3. Report the delta: new snippet count, how many bodies were fetched, how many were dropped as empty or duplicate. Name any new rows that have no `publication`, `source` or `date` so the user can fill them in.

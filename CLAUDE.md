@@ -15,6 +15,7 @@ Personal PWA that shows one random press clipping at a time. Vite, React, TypeSc
 - `pnpm lint` — oxlint
 - `pnpm build` — type-check, then build `dist` with the PWA manifest, icons and service worker
 - `pnpm export` — refresh `data/snippets.json` from Notion (needs `NOTION_TOKEN`; the `update-from-notion` skill owns the ritual)
+- `node scripts/diff-yearly-page.mjs <page>` — list a yearly Articles page's entries missing from the database (the `import-yearly-page` skill owns the ritual)
 
 ## Data contract
 

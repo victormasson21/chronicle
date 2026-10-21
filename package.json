@@ -10,7 +10,7 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "test": "vitest run",
-    "export": "node scripts/export-notion.mjs"
+    "export": "node --env-file=.env scripts/export-notion.mjs"
   },
   "dependencies": {
     "@fontsource/newsreader": "^5.3.0",
