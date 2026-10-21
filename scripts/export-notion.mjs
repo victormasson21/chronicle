@@ -140,10 +140,18 @@ process.stderr.write("\n");
 
 // Drop rows with no body (e.g. Type = Image) and exact-duplicate bodies, keeping the first seen.
 const seen = new Set();
+let empty = 0;
+let duplicates = 0;
 const snippets = out.filter((s) => {
-  if (!s.text) return false;
+  if (!s.text) {
+    empty++;
+    return false;
+  }
   const key = s.text.replace(/\s+/g, " ").trim().toLowerCase();
-  if (seen.has(key)) return false;
+  if (seen.has(key)) {
+    duplicates++;
+    return false;
+  }
   seen.add(key);
   return true;
 });
@@ -156,4 +164,4 @@ await writeFile(
   JSON.stringify({ exportedAt: new Date().toISOString(), count: snippets.length, snippets }, null, 2) + "\n"
 );
 
-console.log(`Wrote ${snippets.length} snippets to ${OUT} (${fetched} bodies fetched, ${out.length - snippets.length} dropped as empty/duplicate).`);
+console.log(`Wrote ${snippets.length} snippets to ${OUT} (${fetched} bodies fetched, ${empty} dropped as empty, ${duplicates} as duplicates).`);
