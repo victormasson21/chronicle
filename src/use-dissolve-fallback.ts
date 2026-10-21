@@ -12,9 +12,10 @@ export function useDissolveFallback(
     if (SUPPORTS_VIEW_TIMELINE || !scroller || !target) {
       return
     }
+    const span = Number(getComputedStyle(scroller).getPropertyValue("--next-snippet-at")) * scroller.clientHeight
     const update = (): void => {
       const targetBottom = target.offsetTop + target.offsetHeight - scroller.scrollTop
-      const progress = (scroller.clientHeight - targetBottom) / scroller.clientHeight
+      const progress = (scroller.clientHeight - targetBottom) / span
       target.style.setProperty("--dissolve-progress", String(Math.min(Math.max(progress, 0), 1)))
     }
     update()

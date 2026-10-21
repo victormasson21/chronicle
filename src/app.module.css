@@ -4,7 +4,7 @@
   height: 100dvh;
   max-width: 640px;
   margin: 0 auto;
-  padding: 0 22px;
+  padding: 0 var(--page-gutter);
 }
 
 .header {

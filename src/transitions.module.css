@@ -21,7 +21,7 @@
   .dissolve {
     animation: text-dissolve linear forwards;
     animation-timeline: view();
-    animation-range: exit 0% exit 100%;
+    animation-range: exit 0% exit calc(100% * var(--next-snippet-at));
   }
 }
 

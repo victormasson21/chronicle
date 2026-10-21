@@ -1,7 +1,9 @@
 .scroller {
   position: relative;
   flex: 1;
-  overflow-y: auto;
+  margin: 0 calc(-1 * var(--page-gutter));
+  padding: 0 var(--page-gutter);
+  overflow: hidden auto;
   scrollbar-width: none;
 }
 
@@ -29,7 +31,7 @@
 }
 
 .runway {
-  height: 100%;
+  height: calc(100% * var(--next-snippet-at));
 }
 
 .end {

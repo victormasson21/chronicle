@@ -9,6 +9,8 @@
   --font-ui: "Newsreader", Georgia, serif;
   --font-body: "Source Serif 4", Georgia, serif;
   --font-mark: "Old Standard TT", "Times New Roman", serif;
+  --page-gutter: 22px;
+  --next-snippet-at: 0.7;
   font-family: var(--font-ui);
   color: var(--ink);
   background: var(--paper);
