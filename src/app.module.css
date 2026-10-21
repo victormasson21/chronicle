@@ -1,0 +1,47 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 22px;
+}
+
+.header {
+  display: flex;
+  flex: none;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: calc(22px + env(safe-area-inset-top)) 0 14px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.filterButton {
+  font-size: 15px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.filterSuffix {
+  font-variant-caps: small-caps;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.empty {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-style: italic;
+  color: var(--muted);
+}

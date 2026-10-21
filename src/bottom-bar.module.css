@@ -1,0 +1,33 @@
+.bar {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 0 calc(24px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--ink);
+  font-size: 15px;
+}
+
+.name,
+.link {
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.date {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.save {
+  margin-left: auto;
+  font-size: 22px;
+  line-height: 1;
+}

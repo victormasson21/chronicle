@@ -1,0 +1,20 @@
+.icon {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  overflow: hidden;
+  border-radius: 50%;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 22px;
+  text-align: center;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
