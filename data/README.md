@@ -43,7 +43,7 @@ Relative to today, on `date`:
 - **Recent**: `date >= today − 3 months`
 - **Past year**: `date >= today − 12 months`
 - **Older**: `date < today − 12 months`
-- Rows with `date: null` (~45% of the DB at time of first export) match no time filter. Either show them under **Older** or add an "Undated" bucket. Worth a decision before building the filter view.
+- Rows with `date: null` (~45% of the DB at time of first export) go under **Older**.
 
 ## Audit notes from the first pull (21 Oct 2026)
 
