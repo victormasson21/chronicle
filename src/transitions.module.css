@@ -37,14 +37,17 @@
   }
 }
 
-@keyframes appear {
+@keyframes text-appear {
   from {
+    filter: blur(26px);
+    letter-spacing: 12px;
     opacity: 0;
+    transform: translate3d(0, 200px, 0) scale(1.05);
   }
 }
 
 .appear {
-  animation: appear 600ms ease-out;
+  animation: text-appear 900ms ease-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
