@@ -6,7 +6,7 @@ Personal PWA that shows one random press clipping at a time. Vite, React, TypeSc
 
 - Commit directly on `main`. This repo has one maintainer and no outside contributors, so a branch and PR add nothing. Revert to branches and PRs if the repo ever takes outside contributions.
 - Push as the personal GitHub account: `GH_TOKEN=$(gh auth token --user victormasson21) git push`. The active `gh` account is a work account with no access here.
-- A push to `main` deploys to GitHub Pages through `.github/workflows/deploy.yml`. `base` in `vite.config.ts` is `/chronicle/` for the default Pages URL; set it to `/` once a custom domain is on.
+- A push to `main` deploys to `chronicle.vicm.dev` through `.github/workflows/deploy.yml`.
 
 ## Commands
 
