@@ -28,6 +28,14 @@
   text-wrap: pretty;
 }
 
+.runway {
+  height: 100%;
+}
+
+.end {
+  height: 1px;
+}
+
 .chevron {
   flex: none;
   width: 12px;

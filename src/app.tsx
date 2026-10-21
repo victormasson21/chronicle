@@ -55,7 +55,7 @@ export function App(): JSX.Element {
         <FilterView selected={filter} onPick={pickFilter} />
       ) : snippet ? (
         <>
-          <Quote key={sequence} snippet={snippet} />
+          <Quote key={sequence} snippet={snippet} onExhausted={showNext} />
           <BottomBar snippet={snippet} />
         </>
       ) : (
